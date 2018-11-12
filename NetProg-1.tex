@@ -145,8 +145,20 @@
 \section{Introduction}
 \subsection{A Simple Daytime Client}
 
+\begin{frame}
+  \frametitle{A Simple Daytime Client}
+  \begin{itemize}
+  \item Build Socket
+  \item Establish Connection With Server
+  \item Get Date
+  \item Show Date
+  \item Exit
+  \end{itemize}
+\end{frame}
+
+
 \begin{frame}[containsverbatim]
-\frametitle{A Simple Daytime Client}
+\frametitle{A Simple Daytime Client - Code}
 
 {\tiny
   \begin{verbatim}
@@ -180,21 +192,23 @@
   }
 \end{frame}
 
-\begin{frame}[containsverbatim]
-\frametitle{A Simple Daytime Server}
-\begin{itemize}
-\item build socket
-\item establish connection with server
-\item get date
-\item show date
-\item exit
-\end{itemize}
-\end{frame}
 
 \subsection{A Simple Daytime Server}
 
+\begin{frame}
+  \frametitle{A Simple Daytime Server}
+  \begin{itemize}
+  \item Build Socket And Listen
+  \item Accept Client's Connection
+  \item Send Date
+  \item Release Connection
+  \item Serve Next Client
+  \end{itemize}
+\end{frame}
+
 \begin{frame}[containsverbatim]
-\frametitle{A Simple Daytime Server}
+
+\frametitle{A Simple Daytime Server - Code}
   {\tiny
   \begin{verbatim}
        ...
