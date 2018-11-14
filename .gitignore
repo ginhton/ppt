@@ -5,3 +5,5 @@
 *.toc
 *.snm
 *.pdf
+/node_modules/.yarn-integrity
+/yarn.lock

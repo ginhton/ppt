@@ -143,8 +143,7 @@
   \tableofcontents
 \end{frame}
 
-\section{I/O Multiplexing: {\tt select} and {\tt poll} function}
-\subsection{Introduction}
+\section{Introduction}
 
 \begin{frame}
 \frametitle{Introduction}
@@ -160,7 +159,7 @@ I/O multiplexing is typically used in the following scenarios:
 Note: I/O multiplexing is not limited to network programming.
 \end{frame}
 
-\subsection{I/O Models}
+\section{I/O Models}
 \begin{frame}
 \frametitle{I/O Models}
 \begin{itemize}
@@ -214,7 +213,7 @@ Note: I/O multiplexing is not limited to network programming.
   \end{center}
 \end{frame}
 
-\subsection{\texttt{select} Function}
+\section{\texttt{select} Function}
 \begin{frame}[containsverbatim]
 \frametitle{\texttt{select} Function}
 \begin{itemize}
@@ -271,7 +270,7 @@ descriptor.
   Conditions handled by \texttt{select} in \texttt{str\_cli}.
 \end{frame}
 
-% \subsection{Batch Input and Buffering}
+\section{Batch Input and Buffering}
 \begin{frame}
 \frametitle{Batch Input and Buffering}
 \begin{itemize}
@@ -284,7 +283,7 @@ descriptor.
   \end{center}
 \end{frame}
 
-% \subsection{\texttt{shutdown} Function}
+\section{\texttt{shutdown} Function}
 \begin{frame}
 \frametitle{\texttt{shutdown} Function}
  \begin{center}
@@ -292,7 +291,7 @@ descriptor.
   \end{center}
 \end{frame}
 
-\subsection{\texttt{pselect} Function}
+\section{\texttt{pselect} Function}
 \begin{frame}[containsverbatim]
 \frametitle{\texttt{pselect} Function}
 \begin{itemize}
@@ -312,7 +311,7 @@ int pselect(int maxfdp1, fd_set *readset, fd_set *writeset,
 }
 \end{frame}
 
-\subsection{\texttt{poll} Function}
+\section{\texttt{poll} Function}
 \begin{frame}[containsverbatim]
 \frametitle{\texttt{poll} Function}
 \begin{itemize}
