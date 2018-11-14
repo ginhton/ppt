@@ -173,44 +173,62 @@ Note: I/O multiplexing is not limited to network programming.
 
 \begin{frame}
 \frametitle{Blocking I/O Model}
-  \begin{center}
-  \includegraphics[width=.9\textwidth]{figs/06fig01.png}
-  \end{center}
+  \begin{figure}
+  \centering
+  \includegraphics[width=.8\textwidth]{fig/03fig01.png}\\
+  \caption{Blocking I/O Model}
+  \label{1}
+  \end{figure}
 \end{frame}
 
 \begin{frame}
 \frametitle{Nonblocking I/O Model}
-  \begin{center}
-  \includegraphics[width=.9\textwidth]{figs/06fig02.png}
-  \end{center}
+  \begin{figure}
+  \centering
+  \includegraphics[width=.8\textwidth]{fig/03fig02.png}\\
+  \caption{Nonblocking I/O Model}
+  \label{2}
+  \end{figure}
 \end{frame}
 
 \begin{frame}
 \frametitle{I/O Multiplexing Model}
-  \begin{center}
-  \includegraphics[width=.9\textwidth]{figs/06fig03.png}
-  \end{center}
+  \begin{figure}
+  \centering
+  \includegraphics[width=.8\textwidth]{fig/03fig03.png}\\
+  \caption{I/O Multiplexing Model}
+  \label{3}
+  \end{figure}
 \end{frame}
 
 \begin{frame}
 \frametitle{Signal driven I/O Model}
-  \begin{center}
-  \includegraphics[width=.9\textwidth]{figs/06fig04.png}
-  \end{center}
+  \begin{figure}
+  \centering
+  \includegraphics[width=.8\textwidth]{fig/03fig04.png}\\
+  \caption{Signal driven I/O Model}
+  \label{4}
+  \end{figure}
 \end{frame}
 
 \begin{frame}
 \frametitle{Asynchronous I/O Model}
-  \begin{center}
-  \includegraphics[width=.9\textwidth]{figs/06fig05.png}
-  \end{center}
+  \begin{figure}
+  \centering
+  \includegraphics[width=.8\textwidth]{fig/03fig05.png}\\
+  \caption{Asynchronous I/O Model}
+  \label{5}
+  \end{figure}
 \end{frame}
 
 \begin{frame}
 \frametitle{Comparison of I/O Models}
-  \begin{center}
-  \includegraphics[width=.9\textwidth]{figs/06fig06.png}
-  \end{center}
+  \begin{figure}
+  \centering
+  \includegraphics[width=.8\textwidth]{fig/03fig06.png}\\
+  \caption{Comparison of I/O Models}
+  \label{6}
+  \end{figure}
 \end{frame}
 
 \section{\texttt{select} Function}
@@ -222,51 +240,46 @@ Note: I/O multiplexing is not limited to network programming.
   occurs or when a specified amount of time has passed.
   \item (readable, writable, expired time)
 \end{itemize}
-{\scriptsize
-  \begin{verbatim}
-#include <sys/select.h>
-#include <sys/time.h>
-
-int select(int maxfdp1, fd_set *readset, fd_set *writeset,
-               fd_set *exceptset,
-               const struct timeval *timeout);
-  \end{verbatim}
-}
+  \begin{figure}
+  \centering
+  \includegraphics[width=.8\textwidth]{code/03code01.png}\\
+  \caption{\texttt{select} function}
+  \label{7}
+  \end{figure}
 \end{frame}
 
 \begin{frame}[containsverbatim]
 \frametitle{Descriptor sets}
 \begin{itemize}
   \item Array of integers: each bit in each integer correspond to a descriptor.
-  \item \texttt{fd\_set}: an array of integers, with each bit in each integer corresponding to a
-descriptor.
+  \item \texttt{fd\_set}: an array of integers, with each bit in each integer corresponding to a descriptor.
 \end{itemize}
-{\scriptsize
-\begin{verbatim}
- /* clear all bits in fdset */
- Void FD_ZERO(fd_set *fdset);
- /* turn on the bit for fd in fdset */
- Void FD_SET(int fd, fd_set *fdset);
- /* turn off the bit for fd in fdset*/
- Void FD_CLR(int fd, fd_set *fdset);
- /* is the bit for fd on in fdset ? */
- int FD_ISSET(int fd, fd_set *fdset);
-\end{verbatim}
-}
+  \begin{figure}
+  \centering
+  \includegraphics[width=.6\textwidth]{code/03code02.png}\\
+  \caption{fd operations}
+  \label{8}
+  \end{figure}
 \end{frame}
 
 \begin{frame}
 \frametitle{Conditions Summary}
-  \begin{center}
-  \includegraphics[width=.9\textwidth]{figs/06fig07.png}
-  \end{center}
+  \begin{figure}
+  \centering
+  \includegraphics[width=.8\textwidth]{fig/03fig07.png}\\
+  \caption{Conditions Summary}
+  \label{9}
+  \end{figure}
 \end{frame}
 
 \begin{frame}
 \frametitle{\texttt{str\_cli} Function (Revisited)}
-  \begin{center}
-  \includegraphics[width=.6\textwidth]{figs/06fig08.png}
-  \end{center}
+  \begin{figure}
+  \centering
+  \includegraphics[width=.8\textwidth]{fig/03fig08.png}\\
+  \caption{IPV4 socket address structure}
+  \label{10}
+  \end{figure}
   Conditions handled by \texttt{select} in \texttt{str\_cli}.
 \end{frame}
 
@@ -276,19 +289,23 @@ descriptor.
 \begin{itemize}
   \item Network pipe is not fully used
 \end{itemize}
- \begin{center}
-  \includegraphics[width=.3\textwidth]{figs/06fig10.png}
-  \hspace{2em}
-  \includegraphics[width=.6\textwidth]{figs/06fig11.png}
-  \end{center}
+  \begin{figure}
+  \centering
+  \includegraphics[width=.8\textwidth]{fig/03fig09.png}\\
+ \caption{Batch Input and Buffering}
+  \label{11}
+  \end{figure}
 \end{frame}
 
 \section{\texttt{shutdown} Function}
 \begin{frame}
 \frametitle{\texttt{shutdown} Function}
- \begin{center}
-  \includegraphics[width=.7\textwidth]{figs/06fig12.png}
-  \end{center}
+  \begin{figure}
+  \centering
+  \includegraphics[width=.8\textwidth]{fig/03fig10.png}\\
+  \caption{\texttt{shutdown} Function}
+  \label{12}
+  \end{figure}
 \end{frame}
 
 \section{\texttt{pselect} Function}
@@ -297,18 +314,12 @@ descriptor.
 \begin{itemize}
   \item \texttt{pselect} function was invented by Posix.1g.
 \end{itemize}
-{\scriptsize
-\begin{verbatim}
-#include <sys/select.h>
-#include <signal.h>
-#include <time.h>
-
-int pselect(int maxfdp1, fd_set *readset, fd_set *writeset,
-                fd_set *exceptset, const struct timespec *timeout,
-                const sigset_t *sigmask)
-
-\end{verbatim}
-}
+  \begin{figure}
+  \centering
+  \includegraphics[width=.8\textwidth]{code/03code03.png}\\
+  \caption{\texttt{pselect} function}
+  \label{13}
+  \end{figure}
 \end{frame}
 
 \section{\texttt{poll} Function}
@@ -317,13 +328,12 @@ int pselect(int maxfdp1, fd_set *readset, fd_set *writeset,
 \begin{itemize}
   \item Similar to select, but provide additional information when dealing with streams devices
 \end{itemize}
-{\scriptsize
-\begin{verbatim}
-#include <poll.h>
-int poll(struct pollfd  *fdarray, unsigned long nfds, int timeout);
-/*return : count of ready descriptors, 0 on timeout, -1 on error*/
-\end{verbatim}
-}
+  \begin{figure}
+  \centering
+  \includegraphics[width=.8\textwidth]{code/03code04.png}\\
+  \caption{\texttt{poll} function}
+  \label{14}
+  \end{figure}
 \end{frame}
 %%
 %\begin{frame}
