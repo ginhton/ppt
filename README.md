@@ -9,8 +9,10 @@ modified ppt source file.
   -- fig    new image (drawn by hand)
   -- code   code image
   -- *.tex  source code of presentation 
+  -- *.c    source code clips in each presentation
+  -- template.tex   template of image section
+  -- .gitignore     ignore unimportant generated files
 ```
 
 ### about code image
 use [carbon](https://carbon.now.sh) to generate 'png' format image
-
