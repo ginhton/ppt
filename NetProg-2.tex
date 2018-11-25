@@ -225,7 +225,7 @@ for each protocol suite.
 \section{Elementary TCP Sockets}
 
 \subsection{Elementary Sockets Functions}
-\subsubsection{\texttt{socket, connect, bind, listen, accept}}
+\subsubsection{\texttt{socket, connect, bind, listen, accept, close}}
 \begin{frame}
   \frametitle{Elementary Sockets Functions}
   \begin{itemize}
@@ -234,13 +234,132 @@ for each protocol suite.
     \item \texttt{bind}
     \item \texttt{listen}
     \item \texttt{accept}
+    \item \texttt{close}
   \end{itemize}
 \end{frame}
+
+
+\begin{frame}[containsverbatim]
+  \frametitle{\texttt{socket} function}
+  {\scriptsize
+  \begin{verbatim}
+    #include <sys/socket.h>
+    int socket(int family, int type, int protocol);
+  \end{verbatim}
+  \begin{flushright}
+    Returns: non-negative descriptor if OK, -1 on error
+  \end{flushright}
+  }
+  \begin{figure}
+  \centering
+  \includegraphics[width=.8\textwidth]{fig/f-socket-family.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \begin{figure}
+  \centering
+  \includegraphics[width=.8\textwidth]{fig/f-socket-type.png}
+  \includegraphics[width=.8\textwidth]{fig/f-socket-protocol.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}[containsverbatim]
+  \frametitle{\texttt{connect} function}
+  {\scriptsize
+  \begin{verbatim}
+    #include <sys/socket.h>
+    int connect(int sockfd, const struct sockaddr *serv_addr,
+                socklen_t addrlen);
+  \end{verbatim}
+  \begin{flushright}
+    Returns: 0 if OK, -1 on error
+  \end{flushright}
+  }
+  \begin{figure}
+  \centering
+  \includegraphics[width=.8\textwidth]{fig/f-connect-parameters.png}
+  \end{figure}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]
+  \frametitle{\texttt{bind} function}
+  {\scriptsize
+  \begin{verbatim}
+    #include <sys/socket.h>
+    int bind(int sockfd, const struct sockaddr *my_addr,
+             socklen_t addrlen);
+  \end{verbatim}
+  \begin{flushright}
+    Returns: 0 if OK, -1 on error
+  \end{flushright}
+  }
+  \begin{figure}
+  \centering
+  \includegraphics[width=.8\textwidth]{fig/f-bind-parameters.png}
+  \end{figure}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]
+  \frametitle{\texttt{listen} function}
+  {\scriptsize
+  \begin{verbatim}
+    #include <sys/socket.h>
+    #int listen(int sockfd, int backlog);
+  \end{verbatim}
+  \begin{flushright}
+    Returns: 0 if OK, -1 on error
+  \end{flushright}
+  }
+  \begin{figure}
+  \centering
+  \includegraphics[width=.8\textwidth]{fig/f-listen-parameters.png}
+  \end{figure}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]
+  \frametitle{\texttt{accept} function}
+  {\scriptsize
+  \begin{verbatim}
+    #include <sys/socket.h>
+    int accept(int sockfd, struct sockaddr *cliaddr,
+               socklen_t *addrlen);
+  \end{verbatim}
+  \begin{flushright}
+    Returns: non-negative descriptor if OK, -1 on error
+  \end{flushright}
+  }
+  \begin{figure}
+  \centering
+  \includegraphics[width=.8\textwidth]{fig/f-accept-parameters.png}
+  \end{figure}
+\end{frame}
+
 
 %\begin{frame}
 %  \frametitle{{\bf \texttt{socket(...)}}}
 %  % the prototype of socket()
 %\end{frame}
+
+\begin{frame}[containsverbatim]
+  \frametitle{\texttt{close} function}
+  {\scriptsize
+  \begin{verbatim}
+    #include <unistd.h>
+    int close (int sockfd);
+  \end{verbatim}
+  \begin{flushright}
+    Returns: 0 if OK, -1 on error
+  \end{flushright}
+  }
+  \begin{figure}
+  \centering
+  \includegraphics[width=.8\textwidth]{fig/f-close-parameters.png}
+  \end{figure}
+\end{frame}
 
 \subsection{Concurrent Servers}
 \begin{frame}[containsverbatim]
@@ -253,14 +372,14 @@ for each protocol suite.
   \end{figure}
 \end{frame}
 
-\subsection{\texttt{close} Function}
-\begin{frame}
-  \frametitle{\texttt{close} Function}
-  \begin{itemize}
-    \item Descriptor Reference Counts
-    \item {\tt shutdown} for mandatory FIN
-  \end{itemize}
-\end{frame}
+
+%% \begin{frame}
+%%   \frametitle{\texttt{close} Function}
+%%   \begin{itemize}
+%%     \item Descriptor Reference Counts
+%%     \item {\tt shutdown} for mandatory FIN
+%%   \end{itemize}
+%% \end{frame}
 
 %\subsection{\texttt{getsockname \text{and} getpeername} Functions}
 %\begin{frame}
@@ -276,7 +395,7 @@ for each protocol suite.
 \end{itemize}
 \end{frame}
 
-\subsection{Summary}
+\section{Summary}
 \begin{frame}
   \frametitle{Summary}
   \begin{itemize}

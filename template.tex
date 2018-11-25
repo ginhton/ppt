@@ -12,3 +12,17 @@
   \caption{IPV4 socket address structure}
   \label{1}
   \end{figure}
+
+% textbook c code template
+\begin{frame}[containsverbatim]
+  \frametitle{\texttt{socket} function}
+  {\scriptsize
+  \begin{verbatim}
+    #include <sys/socket.h>
+    int socket (int family, int type, int protocol);
+  \end{verbatim}
+  \begin{flushright}
+    Returns: non-negative descriptor if OK, -1 on error
+  \end{flushright}
+  }
+\end{frame}
