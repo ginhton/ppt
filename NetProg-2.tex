@@ -386,6 +386,44 @@ for each protocol suite.
 %  \frametitle{\texttt{getsockname \text{and} getpeername} Functions}
 %\end{frame}
 
+\section{fork and exec}
+\begin{frame}[containsverbatim]
+  \frametitle{fork}
+  {\scriptsize
+  \begin{verbatim}
+      #include <unistd.h>
+      pid_t fork(void);
+  \end{verbatim}
+  \begin{flushright}
+      Returns: 0 in child, process ID of child in parent, -1 on error
+  \end{flushright}
+It returns once in the calling process (called the parent) with a return value that is the process ID of the newly created process (the child). It also returns once in the child, with a return value of 0. Hence, the return value tells the process whether it is the parent or the child.
+  }
+\end{frame}
+
+\begin{frame}[containsverbatim]
+  \frametitle{exec}
+  {\scriptsize
+  \begin{verbatim}
+      #include <unistd.h>
+      int execl (const char *pathname, const char *arg0, ...
+                  /* (char *) 0 */ );
+      int execv (const char *pathname, char *const argv[]);
+      int execle (const char *pathname, const char *arg0, ...
+                  /* (char *) 0, char *const envp[] */ );
+      int execve (const char *pathname, char *const argv[],
+                  char *const envp[]);
+      int execlp (const char *filename, const char *arg0, ...
+                  /* (char *) 0 */ );
+      int execvp (const char *filename, char *const argv[]);
+  \end{verbatim}
+\begin{flushright}
+All six return: -1 on error, no return on success
+\end{flushright}
+only \texttt{execve} is a system call within the kernel and the other five are library functions that call execve.
+}
+\end{frame}
+
 \section{TCP Client/Server Example}
 \begin{frame}
   \frametitle{TCP Client/Server Example}
@@ -401,8 +439,7 @@ for each protocol suite.
   \begin{itemize}
     \item All clients and servers call to \texttt{socket}, returning a socket descriptor.
     \item Clients then call \texttt{connect}, while servers call \texttt{bind}, \texttt{listen}, and \texttt{accept}.
-    \item Sockets are normally closed with the standard close function, although another way is the \texttt{shutdown}
-    function.
+    \item Sockets are normally closed with the standard \texttt{close} function, although another way is the \texttt{shutdown} function.
   \end{itemize}
 \end{frame}
 
